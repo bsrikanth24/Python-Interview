@@ -1,0 +1,38 @@
+# Step-by-Step Explanation
+
+# 1. Function Definition
+# compress_string(s) takes a string s as input.
+
+# 2. Counting Characters
+# d = {} initializes an empty dictionary to store character counts.
+
+# The for c in s: loop iterates over each character c in the string.
+
+# If c is already in the dictionary, its count is incremented by 1.
+
+# If c is not in the dictionary, it is added with a count of 1.
+
+# After this loop, d contains each unique character as a key, and its value is the number of times it appears in s.
+
+# 3. Building the Result String
+# result = "" initializes an empty string to build the compressed result.
+
+# The for k, v in d.items(): loop iterates over each character (k) and its count (v) in the dictionary.
+
+# For each character, it appends the character (k) and its count (v) to the result string.
+
+def compress_string(s):
+    d = {}
+    for c in s:
+        if c in d:
+            d[c] += 1
+        else:
+            d[c] = 1
+    result = ""
+    for k, v in d.items():
+        result += str(k) + str(v)
+    return result
+
+print(compress_string("aabbbc"))
+
+Output: a2b3c1
